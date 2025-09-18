@@ -1,0 +1,39 @@
+linters:
+  enable-all: true
+  disable:
+    - tenv
+    - depguard
+    - varnamelen
+    - noctx
+    - wrapcheck
+    - godot
+    - gci
+    - gochecknoglobals
+    - canonicalheader
+    - exhaustruct
+    - gochecknoinits
+    - mnd
+    - usestdlibvars
+    - tagliatelle
+    - gofumpt
+    - containedctx
+
+linters-settings:
+    lll:
+      line-length: 160
+    gomoddirectives:
+      replace-local: true
+
+issues:
+  exclude-files:
+    - '_test\.go$'
+  exclude-rules:
+    - linters:
+        - stylecheck
+      text: "ST1003"
+    - linters:
+        - revive
+      text: "var-naming:"
+
+run:
+  timeout: 5m
