@@ -22,14 +22,16 @@ var (
 	ErrInvalidBody         = errors.New("failed to form body")
 )
 
+type HMACSettings struct {
+	AccessKey string
+	SecretKey string
+}
+
 type ComlinkSettings struct {
 	ComlinkURL string
-	HMAC       struct {
-		AccessKey string
-		SecretKey string
-	}
-	Ctx context.Context
-	Wg  *sync.WaitGroup
+	HMAC       HMACSettings
+	Ctx        context.Context
+	Wg         *sync.WaitGroup
 }
 
 type Comlink struct {

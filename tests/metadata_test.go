@@ -2,6 +2,7 @@ package tests
 
 import (
 	"testing"
+
 	"github.com/Lego-Fan9/ComlinkGo"
 )
 

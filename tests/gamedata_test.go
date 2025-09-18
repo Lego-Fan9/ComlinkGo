@@ -13,9 +13,12 @@ func TestGameData(t *testing.T) {
 		t.Error(err)
 	}
 
-	metadata, err := comlink.Metadata(ComlinkGo.RequestBody{})
+	payload := ComlinkGo.RequestBody{}
+
+	metadata, err := comlink.Metadata(payload)
 	if err != nil {
 		t.Error(err)
+		return
 	}
 
 	_, ok := metadata["latestGamedataVersion"]
@@ -30,9 +33,9 @@ func TestGameData(t *testing.T) {
 		return
 	}
 
-	payload := ComlinkGo.RequestBody{
-		Payload: &ComlinkGo.Payload{
-			Version: &version,
+	payload = ComlinkGo.RequestBody{
+		Payload: ComlinkGo.Payload{
+			Version: version,
 		},
 	}
 
